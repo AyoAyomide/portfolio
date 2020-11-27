@@ -1,0 +1,164 @@
+// for colors varable
+$grey1: #e3e1e1;
+$grey2: #9a9595;
+$lemon: #92cfa8;
+$bitcoin_gre: linear-gradient(to bottom, #fb9715, #ff7f2a);
+$bitcoin: #fb8915;
+$giftcard_gre: linear-gradient(to bottom, #877aff, #453aef);
+$giftcard: #1f54dd;
+$p-2: #1f54dd;
+$p-2-gre: linear-gradient(to right, #1f54dd, #102a6f);
+$p-2-greT: linear-gradient(to top, #1f54dd, #102a6f);
+$p-1: #fb8915;
+$lemon_gre: linear-gradient(to bottom, #a3f5c0, #12ee60);
+
+$purple:#92278F;
+$purple_gre:linear-gradient(to right, #92278F, #662D91);
+// for font size
+$input: 14px;
+$font-size-1: 16px;
+// font types
+$p-font-1: "Nunito", sans-serif;
+// media screen width and height
+$media_1: 38em;
+// images path
+
+$logo_half:url(../../assets/img/logo-half.svg);
+$logo_full:url(../../assets/img/logo-full.svg);
+
+
+// mixin
+@mixin button_style() {
+    padding: 10px 40px;
+    font: {
+        size: 14px;
+        family: $p-font-1;
+        weight: bold;
+    }
+    cursor: pointer;
+    border: none;
+    border-radius: 3px;
+    &:hover {
+        opacity: 0.8;
+        transition: opacity 0.5s;
+    }
+}
+@mixin input_style {
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid $grey1;
+    border-radius: 5px;
+}
+@mixin shadow {
+    box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.1);
+}
+@mixin normal_F {
+    color: $grey2;
+    margin: 1em 0px;
+    font: {
+        family: $p-font-1;
+        weight: bold;
+    }
+}
+@mixin fixed($pos: fixed) {
+    background-color: white;
+    position: $pos;
+    width: 100%;
+}
+@mixin text($size: $font-size-1) {
+    font: {
+        size: $size;
+        family: $p-font-1;
+    }
+}
+@mixin dev($px: 2px, $col: black) {
+    border: $px solid $col;
+}
+@mixin round($size: 100%) {
+    border-radius: $size;
+}
+@mixin button_icon {
+    width: 35px;
+    height: 35px;
+    border: 2px solid $grey1;
+}
+@mixin icon_style($x: auto, $y: auto, $url: "../assets/img/icon.svg") {
+    background-repeat: no-repeat;
+    background-position: $x $y;
+    background-image: url($url);
+}
+@mixin bg_image($url: "../../assets/img/icon_v2.svg") {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url($url);
+}
+// custom input
+@mixin ctm-input-wrap {
+    display: inline-block;
+    text-align: center;
+    margin: 10px 0px;
+    border-bottom: 2px solid $p-2;
+    width: 100%;
+    padding: 5px;
+    padding-left: 35px;
+    span {
+        float: left;
+        margin-left: -35px;
+        margin-top: 3px;
+    }
+    div {
+        display: inline-block;
+        position: relative;
+        width: 100%;
+    }
+    input,
+    p {
+        font: {
+            size: $input;
+            family: $p-font-1;
+        }
+        width: 100%;
+        padding: 8px 0px;
+        color: $grey2;
+        text-align: left;
+    }
+    input {
+        position: relative;
+        border: none;
+    }
+    p {
+        top: 0px;
+        left: 0px;
+        pointer-events: none;
+        position: absolute;
+    }
+    input:focus,
+    input:valid {
+        font-weight: normal;
+    }
+    input:focus ~ p,
+    input:valid ~ p,
+    .act ~ p {
+        width: auto;
+        padding: 0px;
+        top: -15px;
+        left: 0px;
+        color: #6a6775;
+        transition: 0.1s;
+        border: 1px solid transparent;
+        font : {
+            size: 12px;
+            weight: 600;
+        }
+    }
+    input::-webkit-input-placeholder {
+        color: #f90028;
+    }
+}
+// custom button
+@mixin ctm-button-wrap {
+    .btn {
+        @include button_style;
+        @include shadow;
+    }
+}
