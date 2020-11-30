@@ -1,32 +1,4 @@
-// for colors varable
-$grey1: #e3e1e1;
-$grey2: #9a9595;
-$lemon: #92cfa8;
-$bitcoin_gre: linear-gradient(to bottom, #fb9715, #ff7f2a);
-$bitcoin: #fb8915;
-$giftcard_gre: linear-gradient(to bottom, #877aff, #453aef);
-$giftcard: #1f54dd;
-$p-2: #1f54dd;
-$p-2-gre: linear-gradient(to right, #1f54dd, #102a6f);
-$p-2-greT: linear-gradient(to top, #1f54dd, #102a6f);
-$p-1: #fb8915;
-$lemon_gre: linear-gradient(to bottom, #a3f5c0, #12ee60);
-
-$purple:#92278F;
-$purple_gre:linear-gradient(to right, #92278F, #662D91);
-// for font size
-$input: 14px;
-$font-size-1: 16px;
-// font types
-$p-font-1: "Nunito", sans-serif;
-// media screen width and height
-$media_1: 38em;
-// images path
-
-$logo_half:url(../../assets/img/logo-half.svg);
-$logo_full:url(../../assets/img/logo-full.svg);
-
-
+$primary-col: #6DFDC4;
 // mixin
 @mixin button_style() {
     padding: 10px 40px;
@@ -65,12 +37,7 @@ $logo_full:url(../../assets/img/logo-full.svg);
     position: $pos;
     width: 100%;
 }
-@mixin text($size: $font-size-1) {
-    font: {
-        size: $size;
-        family: $p-font-1;
-    }
-}
+
 @mixin dev($px: 2px, $col: black) {
     border: $px solid $col;
 }
@@ -87,10 +54,10 @@ $logo_full:url(../../assets/img/logo-full.svg);
     background-position: $x $y;
     background-image: url($url);
 }
-@mixin bg_image($url: "../../assets/img/icon_v2.svg") {
+@mixin bg_image($url) {
     background-repeat: no-repeat;
     background-position: center;
-    background-image: url($url);
+    background-image:$url;
 }
 // custom input
 @mixin ctm-input-wrap {

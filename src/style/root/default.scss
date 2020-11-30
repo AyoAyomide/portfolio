@@ -1,32 +1,64 @@
-// default for input
-@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
-@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300&display=swap");
-input[type=number],
-input[type=text],
-input[type=email],
-input[type=password],
+:root {
+    --mdc-theme-primary: #6DFDC4;
+    --mdc-theme-secondary: #018786;
+    --mdc-theme-background: #fff;
+    --mdc-theme-surface: #fff;
+    --mdc-theme-error: #b00020;
+    --mdc-theme-on-primary: #fff;
+    --mdc-theme-on-secondary: #fff;
+    --mdc-theme-on-surface: #000;
+    --mdc-theme-on-error: #fff;
+    --mdc-theme-text-primary-on-background: rgba(0, 0, 0, 0.87);
+    --mdc-theme-text-secondary-on-background: rgba(0, 0, 0, 0.54);
+    --mdc-theme-text-hint-on-background: rgba(0, 0, 0, 0.38);
+    --mdc-theme-text-disabled-on-background: rgba(0, 0, 0, 0.38);
+    --mdc-theme-text-icon-on-background: rgba(0, 0, 0, 0.38);
+    --mdc-theme-text-primary-on-light: rgba(0, 0, 0, 0.87);
+    --mdc-theme-text-secondary-on-light: rgba(0, 0, 0, 0.54);
+    --mdc-theme-text-hint-on-light: rgba(0, 0, 0, 0.38);
+    --mdc-theme-text-disabled-on-light: rgba(0, 0, 0, 0.38);
+    --mdc-theme-text-icon-on-light: rgba(0, 0, 0, 0.38);
+    --mdc-theme-text-primary-on-dark: #fff;
+    --mdc-theme-text-secondary-on-dark: hsla(0, 0%, 100%, 0.7);
+    --mdc-theme-text-hint-on-dark: hsla(0, 0%, 100%, 0.5);
+    --mdc-theme-text-disabled-on-dark: hsla(0, 0%, 100%, 0.5);
+    --mdc-theme-text-icon-on-dark: hsla(0, 0%, 100%, 0.5);
+}
+
+input[type="number"],
+input[type="text"],
+input[type="email"],
+input[type="password"],
 button:focus,
 select:focus,
-input:hover[type=number]::-webkit-inner-spin-button,
-input:focus[type=number]::-webkit-inner-spin-button,
-input:hover[type=number]::-webkit-outer-spin-button {
+input:hover[type="number"]::-webkit-inner-spin-button,
+input:focus[type="number"]::-webkit-inner-spin-button,
+input:hover[type="number"]::-webkit-outer-spin-button {
 	-webkit-appearance: none;
 	-moz-appearance: textfield;
 	appearance: none;
 	outline: none;
 	outline: none;
 }
-::-webkit-input-placeholder {color: #8F8F8F;}
-::-moz-placeholder {color: #8F8F8F;}
-:-ms-input-placeholder {color: #8F8F8F;}
-:-moz-placeholder {color: #8F8F8F;}
+::-webkit-input-placeholder {
+	color: #8f8f8f;
+}
+::-moz-placeholder {
+	color: #8f8f8f;
+}
+:-ms-input-placeholder {
+	color: #8f8f8f;
+}
+:-moz-placeholder {
+	color: #8f8f8f;
+}
 
 // for body
 html,
 body {
 	font-size: 100%;
-    margin: 0;
-    padding:0;
+	margin: 0;
+	padding: 0;
 	scroll-behavior: smooth;
 }
 * {

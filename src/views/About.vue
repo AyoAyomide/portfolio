@@ -5,8 +5,5 @@
   </div>
 </template>
 <style scoped lang="scss">
-div{
-  height: 50em;
-  width: 100%;
-}
+
 </style>
