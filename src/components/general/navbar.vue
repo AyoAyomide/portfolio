@@ -3,7 +3,7 @@
     <!-- Drawer -->
     <ui-drawer type="modal" nav-id="drawer">
       <ui-drawer-header class="nav-header">
-        <div class="img-wraper">
+        <div class="img-wraper" v-shadow="1">
           <img src="../../assets/logo.png" />
         </div>
         <h4 :class="$tt('headline5')"><b>AyoAyomide</b></h4>
@@ -29,7 +29,33 @@
           </ui-item>
         </ui-list>
       </ui-drawer-content>
-      <div class="footer"></div>
+      <div class="footer">
+        <div class="github-wrap">
+          <a href="github" v-ripple></a>
+        </div>
+        <div class="hire-wrap">
+          <ui-icon-button class="cv">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+            >
+              <text
+                id="CV"
+                transform="translate(8 13)"
+                fill="#9889b4"
+                font-size="11"
+                font-family="SegoeUI-Bold, Segoe UI"
+                font-weight="700"
+              >
+                <tspan x="-7.746" y="0">CV</tspan>
+              </text>
+            </svg>
+          </ui-icon-button>
+          <ui-button class="hire" outlined>Hire me</ui-button>
+        </div>
+      </div>
     </ui-drawer>
     <ui-drawer-backdrop></ui-drawer-backdrop>
   </div>
@@ -45,18 +71,18 @@ export default {
     return {
       nav_content: [
         {
-          title: "Web",
+          title: "Ui/Ux",
           subtitle: "hello bla bla",
-          icon: "star",
-          theme: "#D5C8FF",
-          color: "#7958EB",
+          icon: "camera",
+          theme: "#C6FCFC",
+          color: "#00A5A5",
         },
         {
           title: "Web",
           subtitle: "hello bla bla",
-          icon: "star",
-          theme: "#C6FCFC",
-          color: "#00A5A5",
+          icon: "important_devices",
+          theme: "#D5C8FF",
+          color: "#7958EB",
         },
       ],
     };
@@ -81,6 +107,7 @@ export default {
       width: 8em;
       @include round;
       vertical-align: center;
+      box-shadow:inset 0px 1px 10px rgba(0, 0, 0, 0.2);
     }
   }
 }
@@ -95,12 +122,40 @@ export default {
 }
 .demo-container {
   .footer {
-    @include dev;
-    height: 3em;
+    .github-wrap {
+      text-align: center;
+      margin-bottom: 20px;
+      a {
+        display: inline-block;
+        padding: 5px;
+        width: 4em;
+        height: 4em;
+        vertical-align: middle;
+        @include bg_image(url("../../assets/svg/github.svg"));
+        background-size: 3.1em;
+        box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.3);
+        @include round;
+      }
+    }
+    .hire-wrap {
+      padding: 5px;
+      background-color: $primary-col;
+      .cv {
+        @include round;
+        background-color: #d5c8ff;
+      }
+      .hire {
+        color: white;
+        margin-top: -15px;
+        margin-left: 25px;
+        border-color: white;
+      }
+    }
     position: absolute;
     left: 0;
     bottom: 0;
     width: 100%;
+    display: inline-block;
   }
 }
 </style>
