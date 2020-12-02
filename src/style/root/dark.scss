@@ -1,0 +1,29 @@
+$dark: #2a2a2a;
+$light_dark: #484848;
+$primary_text: #e5e5e5;
+$secondary_text: #aeadb2;
+:root {
+    --mdc-theme-text-secondary-on-background: $primary_text;
+}
+#dark {
+    background-color: $dark;
+    #top-bar {
+        background-color: $light_dark;
+        .night-light{
+            color: #fff;
+        }
+    }
+    .demo-container {
+        .mdc-drawer {
+            background-color: $light_dark;
+        }
+    }
+    .mdc-drawer .mdc-list-item {
+        color: $primary_text;
+    }
+    #main-page .proceed-wrap {
+        button::before {
+            background-color: $dark;
+        }
+    }
+}

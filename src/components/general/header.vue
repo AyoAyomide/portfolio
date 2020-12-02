@@ -10,14 +10,35 @@
       <ui-form-field :class="toolbarItemClass">
         <!-- <ui-switch></ui-switch> -->
         <!-- <ui-icon-button class="night-light" icon="wb_sunny"></ui-icon-button> -->
-        <ui-icon-button class="night-light" icon="nights_stay"></ui-icon-button>
-        
+        <ui-icon-button
+          class="night-light"
+          :icon="night_icon"
+          @click="setTheme"
+        ></ui-icon-button>
       </ui-form-field>
     </template>
   </ui-top-app-bar>
 </template>
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      night_icon:'nights_stay'
+    };
+  },
+  methods: {
+    setTheme: function () {
+      let item = document.getElementsByTagName("body")[0];
+      if (item.id != "dark") {
+        item.id = "dark";
+        this.night_icon = 'wb_sunny'; 
+      } else {
+        item.id = "";
+        this.night_icon = 'nights_stay'; 
+      }
+    },
+  },
+};
 </script>
 <style scoped lang="scss">
 #top-bar {
