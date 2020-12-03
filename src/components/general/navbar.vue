@@ -4,7 +4,9 @@
     <ui-drawer type="modal" nav-id="drawer">
       <ui-drawer-header class="nav-header">
         <div class="img-wraper" v-shadow="1">
-          <img src="../../assets/logo.png" />
+          <img
+            src="https://avatars2.githubusercontent.com/u/59843033?s=400&u=6e020b4381d86ef651074998adb67cbf378f7ea9&v=4"
+          />
         </div>
         <h4 :class="$tt('headline5')"><b>AyoAyomide</b></h4>
       </ui-drawer-header>
@@ -31,7 +33,7 @@
       </ui-drawer-content>
       <div class="footer">
         <div class="github-wrap">
-          <a href="github" v-ripple></a>
+          <a href="https://github.com/AyoAyomide" v-ripple></a>
         </div>
         <div class="hire-wrap">
           <ui-icon-button class="cv">
@@ -61,9 +63,7 @@
   </div>
 </template>
 <script>
-// import uiList from "@/components/sharp/icon_list.vue";
 export default {
-  name: "navbar",
   components: {
     // uiList,
   },
@@ -72,14 +72,14 @@ export default {
       nav_content: [
         {
           title: "Ui/Ux",
-          subtitle: "hello bla bla",
+          subtitle: "Ui models",
           icon: "camera",
           theme: "#C6FCFC",
           color: "#00A5A5",
         },
         {
           title: "Web",
-          subtitle: "hello bla bla",
+          subtitle: "Web models",
           icon: "important_devices",
           theme: "#D5C8FF",
           color: "#7958EB",
@@ -107,7 +107,7 @@ export default {
       width: 8em;
       @include round;
       vertical-align: center;
-      box-shadow:inset 0px 1px 10px rgba(0, 0, 0, 0.2);
+      box-shadow: inset 0px 1px 10px rgba(0, 0, 0, 0.2);
     }
   }
 }

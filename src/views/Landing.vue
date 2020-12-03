@@ -1,12 +1,7 @@
 <template>
-  <Head>
-    <template v-slot:default>
-      <p>A paragraph for the main content.</p>
-      <p>And another one.</p>
-    </template>
-  </Head>
+  <Head></Head>
   <!-- side nav -->
-  <navbar></navbar>
+  <Navbar></Navbar>
   <!-- content page -->
   <div id="main-page">
     <div class="content-wrap">
@@ -25,18 +20,14 @@
       </div>
     </div>
     <div class="proceed-wrap">
-      <ui-button>Proceed</ui-button>
+      <ui-button @click="$router.push('home')">Proceed</ui-button>
     </div>
   </div>
 </template>
 
 <script>
-import navbar from "@/components/general/navbar.vue";
 export default {
   name: "Landing",
-  components: {
-    navbar,
-  },
 };
 </script>
 <style scoped lang="scss">
