@@ -47,7 +47,6 @@ $primary-col: #6DFDC4;
 @mixin button_icon {
     width: 35px;
     height: 35px;
-    border: 2px solid $grey1;
 }
 @mixin icon_style($x: auto, $y: auto, $url: "../assets/img/icon.svg") {
     background-repeat: no-repeat;
