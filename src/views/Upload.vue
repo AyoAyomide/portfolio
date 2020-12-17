@@ -22,6 +22,7 @@
   </div>
 </template>
 <script>
+import "firebase/storage";
 export default {
   data() {
     return {
