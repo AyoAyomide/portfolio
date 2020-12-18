@@ -16,28 +16,55 @@
         <ui-icon dark size="36">cloud_upload</ui-icon>
       </div>
       <br /><br />
-      <ui-textfield outlined> Project tag </ui-textfield><br /><br />
-      <ui-button>Send</ui-button>
+      <ui-select v-model="picked_tag" filled :options="tags"> Project location </ui-select
+      ><br /><br />
+      <ui-textfield outlined v-model="img_name"> Project tag </ui-textfield><br /><br />
+      <ui-button @click="submit_data()">Send</ui-button>
     </div>
   </div>
 </template>
 <script>
-import "firebase/storage";
+import { upload_img, load_img } from "../mixin/storage";
+
 export default {
   data() {
     return {
       upload_progress: false,
       img_data: false,
+      img_name: "",
+      img_file: false,
+      tags: [
+        {
+          value: "web",
+          label: "web",
+        },
+        {
+          value: "3d",
+          label: "3d",
+        },
+      ],
+      picked_tag: "web",
     };
+  },
+  mounted() {
+    load_img();
   },
   methods: {
     preview_img: function (file) {
       let scanner = new FileReader();
       scanner.onload = () => {
         this.img_data = scanner.result;
-        this.imgFile = file;
+        this.img_file = file;
       };
       scanner.readAsDataURL(file);
+    },
+    submit_data: function () {
+      let hint = (data) => {
+        this.upload_progress = data;
+      };
+      upload_img(this.img_file, this.picked_tag, this.img_name, hint);
+      this.img_file = false;
+      this.img_name = "";
     },
   },
 };
