@@ -15,6 +15,8 @@
 </template>
 <script>
 import card from "@/components/general/card.vue";
+import {getProject } from "../mixin/database";
+
 export default {
   components: {
     card,
@@ -34,6 +36,9 @@ export default {
         },
       ],
     };
+  },
+  mounted() {
+    getProject("3d");
   },
 };
 </script>

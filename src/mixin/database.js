@@ -23,4 +23,10 @@ function getTagList(pass) {
         pass(tagData);
     })
 }
-export { img_data, getTagList }
+function getProject(type) {
+    let project = database.collection("project").doc(type);
+    project.get().then((doc) => {
+        console.log(doc.data().data);
+    })
+}
+export { img_data, getTagList, getProject }

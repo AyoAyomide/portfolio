@@ -69,6 +69,7 @@ export default {
       this.tags = data;
     };
     getTagList(setTag);
+    
   },
   methods: {
     preview_img: function (file) {
