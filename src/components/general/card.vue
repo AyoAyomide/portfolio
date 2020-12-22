@@ -2,11 +2,11 @@
   <div class="card-wrap">
     <ui-skeleton
       id="loader"
-      :loading="loading"
+      :loading="imageDone"
       :avatar="{ size: 300, shape: 'square' }"
       active
     >
-      <img v-ripple src="../../assets/logo.png" />
+      <img v-ripple :src="imgBlob" />
     </ui-skeleton>
 
     <div id="nameWrap" v-shadow="2">
@@ -18,12 +18,34 @@
   </div>
 </template>
 <script>
+const axios = require("axios");
 export default {
   props: ["imgUrl", "tag", "loading"],
   data() {
     return {
-      //   loading: true,
+      imgBlob: "",
+      imageDone: this.loading,
     };
+  },
+  mounted() {
+    setTimeout(this.fetch_image(), 1000);
+  },
+  methods: {
+    fetch_image: function () {
+      if (this.imgUrl != undefined) {
+        axios
+          .get(this.imgUrl)
+          .then(() => {
+            // handle success
+            this.imgBlob = this.imgUrl;
+            this.imageDone = false;
+          })
+          .catch(function (error) {
+            // handle error
+            console.log(error);
+          });
+      }
+    },
   },
 };
 </script>
@@ -56,13 +78,14 @@ export default {
       margin-right: -30px;
       display: inline-block;
       color: #378f82;
+      text-transform: capitalize;
     }
     button {
       margin-right: 15px;
       float: right;
       @include round;
       i {
-        color: #378f82;
+        color: #e92517;
         transform: rotate(-20deg);
       }
     }

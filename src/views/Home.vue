@@ -4,41 +4,33 @@
   <Navbar></Navbar>
   <!-- content page -->
   <div id="main-page">
+    <!-- :imgUrl="item.imgURL" -->
     <card
-      v-for="(item, index) in web_data"
+      v-for="(item, index) in projectData"
       :key="index"
-      :imgUrl="item.imgURL"
-      :tag="item.tag"
+      :imgUrl="item.url"
+      :tag="item.name"
       :loading="item.loading"
     ></card>
   </div>
 </template>
 <script>
 import card from "@/components/general/card.vue";
-import {getProject } from "../mixin/database";
-
+import { getProject } from "../mixin/database";
 export default {
   components: {
     card,
   },
   data() {
     return {
-      web_data: [
-        {
-          imgURL: "url",
-          tag: "tag 1",
-          loading: true,
-        },
-        {
-          imgURL: "url",
-          tag: "tag 2",
-          loading: false,
-        },
-      ],
+      projectData: [],
     };
   },
   mounted() {
-    getProject("3d");
+    let setProjectData = (data) => {
+      this.projectData = data;
+    };
+    getProject("3d", setProjectData);
   },
 };
 </script>
