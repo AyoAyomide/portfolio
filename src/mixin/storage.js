@@ -1,16 +1,17 @@
 import firebase from "firebase/app";
 import "firebase/storage";
 import { useToast } from "balm-ui/plugins/toast";
+import { img_data } from "./database";
 const axios = require('axios');
 const $toast = useToast();
 
-function upload_img(file, tag, name, hint) {
+function upload_img(file, loc, name, tags, hint) {
     if (file == false || name == "") {
         $toast("Invalid image file or file name")
         return false;
     }
     let storageRef = firebase.storage().ref();
-    let location = storageRef.child(tag + '/' + name);
+    let location = storageRef.child(loc + '/' + name);
     let tracker = location.put(file);
     tracker.on('state_changed', function (snapshot) {
         let progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
@@ -18,6 +19,16 @@ function upload_img(file, tag, name, hint) {
     }, function (error) {
         $toast(error)
     }, function () {
+        tracker.snapshot.ref.getDownloadURL().then(function (url) {
+            // add image data to db
+            let objData = {
+                name,
+                tags,
+                url,
+                likes: 0,
+            };
+            img_data(loc, objData);
+        });
         $toast("Image uploaded");
     });
 }

@@ -16,16 +16,32 @@
         <ui-icon dark size="36">cloud_upload</ui-icon>
       </div>
       <br /><br />
-      <ui-select v-model="picked_tag" filled :options="tags"> Project location </ui-select
+      <ui-select v-model="picked_tag" filled :options="loc"> Project location </ui-select
       ><br /><br />
-      <ui-textfield outlined v-model="img_name"> Project tag </ui-textfield><br /><br />
+      <!-- tags wrap -->
+      <ui-collapse withIcon ripple class="loc">
+        <template #toggle>
+          <div>Tools</div>
+        </template>
+        <!-- checkbox -->
+        <!--  -->
+        <div class="checkbox" v-for="(data, index) in tags" :key="index">
+          <ui-form-field>
+            <ui-checkbox v-model="checkedTags" :value="data"></ui-checkbox>
+            <label>{{ data }}</label>
+          </ui-form-field>
+        </div>
+      </ui-collapse>
+      <br />
+      <!-- project wrap -->
+      <ui-textfield outlined v-model="img_name"> Project name </ui-textfield><br /><br />
       <ui-button @click="submit_data()">Send</ui-button>
     </div>
   </div>
 </template>
 <script>
-import { upload_img, load_img } from "../mixin/storage";
-
+import { upload_img } from "../mixin/storage";
+import { getTagList } from "../mixin/database";
 export default {
   data() {
     return {
@@ -33,7 +49,7 @@ export default {
       img_data: false,
       img_name: "",
       img_file: false,
-      tags: [
+      loc: [
         {
           value: "web",
           label: "web",
@@ -43,11 +59,16 @@ export default {
           label: "3d",
         },
       ],
+      tags: [],
+      checkedTags: [],
       picked_tag: "web",
     };
   },
   mounted() {
-    load_img();
+    let setTag = (data) => {
+      this.tags = data;
+    };
+    getTagList(setTag);
   },
   methods: {
     preview_img: function (file) {
@@ -62,7 +83,7 @@ export default {
       let hint = (data) => {
         this.upload_progress = data;
       };
-      upload_img(this.img_file, this.picked_tag, this.img_name, hint);
+      upload_img(this.img_file, this.picked_tag, this.img_name, this.checkedTags, hint);
       this.img_file = false;
       this.img_name = "";
     },
@@ -86,6 +107,18 @@ export default {
     width: 20em;
     display: inline-block;
     background-size: contain;
+  }
+  // tags
+  .loc {
+    width: 20em;
+    display: inline-block;
+    margin-bottom: 1em;
+    padding: 0.5em;
+    cursor: pointer;
+    .checkbox {
+      width: auto;
+      text-align: left;
+    }
   }
   .upload_button {
     @include round;
