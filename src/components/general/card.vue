@@ -85,7 +85,7 @@ export default {
       float: right;
       @include round;
       i {
-        color: #e92517;
+        color: #2dc5c5;
         transform: rotate(-20deg);
       }
     }
