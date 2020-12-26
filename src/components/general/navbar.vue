@@ -18,15 +18,14 @@
             class="list_wrap"
             v-for="(item, index) in nav_content"
             :key="index"
+            @click="$emit('active-nav', item.title)"
           >
             <ui-item-first-content :style="{ backgroundColor: item.theme }">
               <ui-icon :style="{ color: item.color }">{{ item.icon }}</ui-icon>
             </ui-item-first-content>
             <ui-item-text-content>
               <ui-item-text1>{{ item.title }}</ui-item-text1>
-              <ui-item-text2>{{
-                item.subtitle
-              }}</ui-item-text2></ui-item-text-content
+              <ui-item-text2>{{ item.subtitle }}</ui-item-text2></ui-item-text-content
             >
           </ui-item>
         </ui-list>
@@ -37,25 +36,31 @@
         </div>
         <div class="hire-wrap">
           <ui-icon-button class="cv">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              viewBox="0 0 16 16"
+            <a
+              href="https://drive.google.com/file/d/1N5EQH0ryS6ACYjISpgLaNsp0_5edXmqf/view?usp=sharing"
             >
-              <text
-                id="CV"
-                transform="translate(8 13)"
-                fill="#9889b4"
-                font-size="11"
-                font-family="SegoeUI-Bold, Segoe UI"
-                font-weight="700"
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
               >
-                <tspan x="-7.746" y="0">CV</tspan>
-              </text>
-            </svg>
+                <text
+                  id="CV"
+                  transform="translate(8 13)"
+                  fill="#9889b4"
+                  font-size="11"
+                  font-family="SegoeUI-Bold, Segoe UI"
+                  font-weight="700"
+                >
+                  <tspan x="-7.746" y="0">CV</tspan>
+                </text>
+              </svg>
+            </a>
           </ui-icon-button>
-          <ui-button class="hire" outlined>Hire me</ui-button>
+          <a class="hireA" href="mailto:ayoayomide124@gmail.com">
+            <ui-button class="hire" outlined>Hire me</ui-button>
+          </a>
         </div>
       </div>
     </ui-drawer>
@@ -64,19 +69,9 @@
 </template>
 <script>
 export default {
-  components: {
-    // uiList,
-  },
   data() {
     return {
       nav_content: [
-        {
-          title: "3d",
-          subtitle: "3d models & design",
-          icon: "3d_rotation",
-          theme: "#D0E7F5",
-          color: "#42A2D5",
-        },
         {
           title: "Web",
           subtitle: "Web dev",
@@ -85,15 +80,23 @@ export default {
           color: "#7958EB",
         },
         {
-          title: "Ui/Ux",
+          title: "Ui",
           subtitle: "Ui design",
           icon: "camera",
           theme: "#C6FCFC",
           color: "#00A5A5",
         },
+        {
+          title: "3d",
+          subtitle: "3d models & design",
+          icon: "3d_rotation",
+          theme: "#D0E7F5",
+          color: "#42A2D5",
+        },
       ],
     };
   },
+  emits: ["active-nav"],
 };
 </script>
 <style scoped lang="scss">
@@ -164,5 +167,8 @@ export default {
     width: 100%;
     display: inline-block;
   }
+}
+.hireA {
+  text-decoration: none;
 }
 </style>

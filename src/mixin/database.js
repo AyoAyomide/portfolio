@@ -27,7 +27,7 @@ function getProject(type, pass) {
     let project = database.collection("project").doc(type);
     project.get().then((doc) => {
         pass(doc.data().data);
-        console.log(doc.data().data);
+        // console.log(doc.data().data);
     })
 }
 export { img_data, getTagList, getProject }
