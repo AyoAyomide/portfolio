@@ -11,6 +11,7 @@
       :imgUrl="item.url"
       :tag="item.name"
       :loading="item.loading"
+      :pageUrl="item.pageUrl"
     ></card>
   </div>
 </template>

@@ -16,7 +16,7 @@
         </div>
       </div>
       <div class="svg-wrap">
-        <img src="../assets/svg/landing_page.svg" />
+        <img id="landing_image" src="../assets/gif/landing.gif" />
       </div>
     </div>
     <div class="proceed-wrap">
@@ -28,6 +28,12 @@
 <script>
 export default {
   name: "Landing",
+  mounted() {
+    setTimeout(()=>{
+      let imgData = document.getElementById('landing_image');
+      imgData.src = require("../assets/svg/landing_page.svg");
+    },1000)
+  },
 };
 </script>
 <style scoped lang="scss">

@@ -9,18 +9,18 @@
       <img v-ripple :src="imgBlob" />
     </ui-skeleton>
 
-    <div id="nameWrap" v-shadow="2">
-      <h6 :class="$tt('subtitle1')">{{ tag }}</h6>
-      <ui-icon-button>
-        <ui-icon>favorite_border</ui-icon>
-      </ui-icon-button>
-    </div>
+    <a id="nameWrap" :href="setPageUrl()">
+      <h6 :class="$tt('subtitle2')">{{ tag }}</h6>
+      <!--  <ui-icon-button>
+          <ui-icon>favorite_border</ui-icon>
+      </ui-icon-button>-->
+    </a>
   </div>
 </template>
 <script>
 const axios = require("axios");
 export default {
-  props: ["imgUrl", "tag", "loading"],
+  props: ["imgUrl", "tag", "loading","pageUrl"],
   data() {
     return {
       imgBlob: "",
@@ -46,6 +46,9 @@ export default {
           });
       }
     },
+    setPageUrl:function(){
+      return this.pageUrl != undefined ? this.pageUrl : '';
+    }
   },
 };
 </script>
@@ -71,11 +74,12 @@ export default {
     width: 80%;
     position: relative;
     overflow: hidden;
-    padding: 2px;
-
+    padding: 10px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
     h6 {
-      margin-top: 8px;
-      margin-right: -30px;
+      // margin-top: 8px;
+      // margin-right: -30px;
       display: inline-block;
       color: #378f82;
       text-transform: capitalize;
