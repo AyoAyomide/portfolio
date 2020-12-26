@@ -1,5 +1,6 @@
 module.exports = {
     runtimeCompiler: true,
+
     css: {
         loaderOptions: {
             sass: {
@@ -8,4 +9,8 @@ module.exports = {
             }
         }
     },
+
+    pwa: {
+      name: 'AyoAyomide'
+    }
 }
