@@ -71,18 +71,25 @@ export default {
     return {
       nav_content: [
         {
-          title: "Ui/Ux",
-          subtitle: "Ui models",
-          icon: "camera",
-          theme: "#C6FCFC",
-          color: "#00A5A5",
+          title: "3d",
+          subtitle: "3d models & design",
+          icon: "3d_rotation",
+          theme: "#D0E7F5",
+          color: "#42A2D5",
         },
         {
           title: "Web",
-          subtitle: "Web models",
+          subtitle: "Web dev",
           icon: "important_devices",
           theme: "#D5C8FF",
           color: "#7958EB",
+        },
+        {
+          title: "Ui/Ux",
+          subtitle: "Ui design",
+          icon: "camera",
+          theme: "#C6FCFC",
+          color: "#00A5A5",
         },
       ],
     };
