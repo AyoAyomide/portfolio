@@ -58,6 +58,10 @@ export default {
           value: "3d",
           label: "3d",
         },
+        {
+          value: "ui",
+          label: "ui",
+        },
       ],
       tags: [],
       checkedTags: [],

@@ -30,7 +30,7 @@ export default {
     let setProjectData = (data) => {
       this.projectData = data;
     };
-    getProject("3d", setProjectData);
+    getProject("web", setProjectData);
   },
 };
 </script>
