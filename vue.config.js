@@ -9,9 +9,38 @@ module.exports = {
             }
         }
     },
-
     pwa: {
-        manifestPath: 'manifest.json',
+        manifestOptions: {
+            "name": "AyoAyomide",
+            "short_name": "Ayo",
+            "theme_color": "#6DFDC4",
+            "icons": [
+                {
+                    "src": "/img/icons/android-chrome-192x192.png",
+                    "sizes": "192x192",
+                    "type": "image/png"
+                },
+                {
+                    "src": "/img/icons/android-chrome-512x512.png",
+                    "sizes": "512x512",
+                    "type": "image/png"
+                },
+                {
+                    "src": "/img/icons/android-chrome-192x192.png",
+                    "sizes": "192x192",
+                    "type": "image/png",
+                    "purpose": "maskable"
+                },
+                {
+                    "src": "/img/icons/android-chrome-512x512.png",
+                    "sizes": "512x512",
+                    "type": "image/png",
+                    "purpose": "maskable"
+                }
+            ],
+            "background_color": "#000000"
+        },
+        // manifestPath: 'manifest.json',
         iconPaths: {
             favicon32: 'img/icons/favicon-32x32.png',
             favicon16: 'img/icons/favicon-16x16.png',
